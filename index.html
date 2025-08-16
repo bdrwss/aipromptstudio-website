@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Prompt Studio - 专业的AI提示词管理工具</title>
+    <meta name="description" content="AI Prompt Studio是一个功能强大的本地桌面应用，专为AI提示词的收藏、管理和检索而设计。支持文本、图片、视频等多种类型的提示词管理。">
+    <meta name="keywords" content="AI提示词,提示词管理,AI工具,桌面应用,PySide6,Python">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aipromptstudio.com/">
+    <meta property="og:title" content="AI Prompt Studio - 专业的AI提示词管理工具">
+    <meta property="og:description" content="功能强大的本地桌面应用，专为AI提示词的收藏、管理和检索而设计">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://aipromptstudio.com/">
+    <meta property="twitter:title" content="AI Prompt Studio - 专业的AI提示词管理工具">
+    <meta property="twitter:description" content="功能强大的本地桌面应用，专为AI提示词的收藏、管理和检索而设计">
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-brain"></i>
+                <span>AI Prompt Studio</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">首页</a></li>
+                <li><a href="#features" class="nav-link">功能特性</a></li>
+                <li><a href="#architecture" class="nav-link">技术架构</a></li>
+                <li><a href="#download" class="nav-link">下载</a></li>
+                <li><a href="#docs" class="nav-link">文档</a></li>
+                <li><a href="#contact" class="nav-link">联系我们</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主页面 -->
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        专业的<span class="gradient-text">AI提示词</span>管理工具
+                    </h1>
+                    <p class="hero-description">
+                        AI Prompt Studio 是一个功能强大的本地桌面应用，专为AI提示词的收藏、管理和检索而设计。
+                        支持文本、图片、视频等多种类型的提示词管理，让您的AI创作更加高效。
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#download" class="btn btn-primary">
+                            <i class="fas fa-download"></i>
+                            立即下载
+                        </a>
+                        <a href="#features" class="btn btn-secondary">
+                            <i class="fas fa-play"></i>
+                            了解更多
+                        </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <span class="stat-number">10K+</span>
+                            <span class="stat-label">活跃用户</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">50K+</span>
+                            <span class="stat-label">提示词管理</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">99.9%</span>
+                            <span class="stat-label">稳定性</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="app-mockup">
+                        <div class="mockup-window">
+                            <div class="window-header">
+                                <div class="window-controls">
+                                    <span class="control close"></span>
+                                    <span class="control minimize"></span>
+                                    <span class="control maximize"></span>
+                                </div>
+                                <div class="window-title">AI Prompt Studio</div>
+                            </div>
+                            <div class="window-content">
+                                <div class="app-interface">
+                                    <div class="sidebar">
+                                        <div class="sidebar-item active">
+                                            <i class="fas fa-home"></i>
+                                            <span>首页</span>
+                                        </div>
+                                        <div class="sidebar-item">
+                                            <i class="fas fa-folder"></i>
+                                            <span>分类管理</span>
+                                        </div>
+                                        <div class="sidebar-item">
+                                            <i class="fas fa-star"></i>
+                                            <span>收藏夹</span>
+                                        </div>
+                                        <div class="sidebar-item">
+                                            <i class="fas fa-trash"></i>
+                                            <span>回收站</span>
+                                        </div>
+                                    </div>
+                                    <div class="main-content">
+                                        <div class="search-bar">
+                                            <i class="fas fa-search"></i>
+                                            <input type="text" placeholder="搜索提示词...">
+                                        </div>
+                                        <div class="prompt-grid">
+                                            <div class="prompt-card">
+                                                <div class="prompt-type text">T</div>
+                                                <div class="prompt-title">文案创作助手</div>
+                                                <div class="prompt-tags">
+                                                    <span class="tag">文案</span>
+                                                    <span class="tag">创作</span>
+                                                </div>
+                                            </div>
+                                            <div class="prompt-card">
+                                                <div class="prompt-type image">I</div>
+                                                <div class="prompt-title">图像生成提示</div>
+                                                <div class="prompt-tags">
+                                                    <span class="tag">图像</span>
+                                                    <span class="tag">AI绘画</span>
+                                                </div>
+                                            </div>
+                                            <div class="prompt-card">
+                                                <div class="prompt-type video">V</div>
+                                                <div class="prompt-title">视频脚本模板</div>
+                                                <div class="prompt-tags">
+                                                    <span class="tag">视频</span>
+                                                    <span class="tag">脚本</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 功能特性 -->
+        <section id="features" class="features">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">强大的功能特性</h2>
+                    <p class="section-description">
+                        AI Prompt Studio 提供全面的提示词管理解决方案，让您的AI创作工作流更加高效
+                    </p>
+                </div>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-edit"></i>
+                        </div>
+                        <h3 class="feature-title">智能提示词管理</h3>
+                        <p class="feature-description">
+                            支持文本、图片、视频等多种类型的提示词创建、编辑和删除。提供丰富的标签和分类系统，让管理更加有序。
+                        </p>
+                        <ul class="feature-list">
+                            <li>多类型内容支持</li>
+                            <li>灵活的标签系统</li>
+                            <li>批量操作功能</li>
+                            <li>版本历史记录</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3 class="feature-title">强大的搜索引擎</h3>
+                        <p class="feature-description">
+                            内置智能搜索引擎，支持全文搜索、标签筛选、类型过滤等多维度检索，快速找到您需要的提示词。
+                        </p>
+                        <ul class="feature-list">
+                            <li>全文搜索</li>
+                            <li>高级筛选</li>
+                            <li>模糊匹配</li>
+                            <li>搜索历史</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 class="feature-title">数据安全保障</h3>
+                        <p class="feature-description">
+                            本地数据存储，自动备份机制，数据加密保护。支持完整备份和恢复，确保您的数据安全无忧。
+                        </p>
+                        <ul class="feature-list">
+                            <li>本地数据存储</li>
+                            <li>自动备份</li>
+                            <li>数据加密</li>
+                            <li>一键恢复</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-images"></i>
+                        </div>
+                        <h3 class="feature-title">多媒体支持</h3>
+                        <p class="feature-description">
+                            完整的多媒体文件管理系统，支持图片和视频的预览、缩略图生成、文件去重和自动清理功能。
+                        </p>
+                        <ul class="feature-list">
+                            <li>图片视频预览</li>
+                            <li>自动缩略图</li>
+                            <li>文件去重</li>
+                            <li>智能清理</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h3 class="feature-title">优雅的用户界面</h3>
+                        <p class="feature-description">
+                            基于现代设计理念的用户界面，支持明暗主题切换，响应式布局，为您提供舒适的使用体验。
+                        </p>
+                        <ul class="feature-list">
+                            <li>明暗主题切换</li>
+                            <li>响应式设计</li>
+                            <li>拖拽操作</li>
+                            <li>快捷键支持</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-plug"></i>
+                        </div>
+                        <h3 class="feature-title">扩展性设计</h3>
+                        <p class="feature-description">
+                            内置插件系统和REST API接口，支持第三方扩展开发，可与主流AI平台无缝集成。
+                        </p>
+                        <ul class="feature-list">
+                            <li>插件系统</li>
+                            <li>REST API</li>
+                            <li>平台集成</li>
+                            <li>自定义扩展</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 技术架构 -->
+        <section id="architecture" class="architecture">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">先进的技术架构</h2>
+                    <p class="section-description">
+                        采用现代化的分层架构设计，确保应用的稳定性、可维护性和扩展性
+                    </p>
+                </div>
+
+                <div class="architecture-content">
+                    <div class="tech-stack">
+                        <h3>核心技术栈</h3>
+                        <div class="tech-grid">
+                            <div class="tech-item">
+                                <div class="tech-icon">
+                                    <i class="fab fa-python"></i>
+                                </div>
+                                <div class="tech-info">
+                                    <h4>Python 3.8+</h4>
+                                    <p>现代化的开发语言</p>
+                                </div>
+                            </div>
+                            <div class="tech-item">
+                                <div class="tech-icon">
+                                    <i class="fas fa-desktop"></i>
+                                </div>
+                                <div class="tech-info">
+                                    <h4>PySide6</h4>
+                                    <p>跨平台GUI框架</p>
+                                </div>
+                            </div>
+                            <div class="tech-item">
+                                <div class="tech-icon">
+                                    <i class="fas fa-database"></i>
+                                </div>
+                                <div class="tech-info">
+                                    <h4>SQLite</h4>
+                                    <p>轻量级数据库</p>
+                                </div>
+                            </div>
+                            <div class="tech-item">
+                                <div class="tech-icon">
+                                    <i class="fas fa-image"></i>
+                                </div>
+                                <div class="tech-info">
+                                    <h4>Pillow & OpenCV</h4>
+                                    <p>图像视频处理</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="architecture-diagram">
+                        <h3>架构设计</h3>
+                        <div class="diagram">
+                            <div class="layer presentation">
+                                <h4>表现层 (UI Layer)</h4>
+                                <p>PySide6界面 • 用户交互 • 主题系统</p>
+                            </div>
+                            <div class="layer service">
+                                <h4>服务层 (Service Layer)</h4>
+                                <p>业务逻辑 • 数据验证 • 异常处理</p>
+                            </div>
+                            <div class="layer data">
+                                <h4>数据层 (Data Layer)</h4>
+                                <p>SQLite数据库 • 文件管理 • 备份系统</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="design-patterns">
+                    <h3>设计模式</h3>
+                    <div class="patterns-grid">
+                        <div class="pattern-item">
+                            <i class="fas fa-sitemap"></i>
+                            <h4>依赖注入</h4>
+                            <p>松耦合的服务管理</p>
+                        </div>
+                        <div class="pattern-item">
+                            <i class="fas fa-industry"></i>
+                            <h4>工厂模式</h4>
+                            <p>对象创建和管理</p>
+                        </div>
+                        <div class="pattern-item">
+                            <i class="fas fa-eye"></i>
+                            <h4>观察者模式</h4>
+                            <p>事件驱动的UI更新</p>
+                        </div>
+                        <div class="pattern-item">
+                            <i class="fas fa-crown"></i>
+                            <h4>单例模式</h4>
+                            <p>全局资源管理</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+        <!-- 下载区域 -->
+        <section id="download" class="download">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">立即下载体验</h2>
+                    <p class="section-description">
+                        支持 Windows、macOS 和 Linux 多平台，选择适合您的版本开始使用
+                    </p>
+                </div>
+
+                <div class="download-options">
+                    <div class="download-card">
+                        <div class="download-icon">
+                            <i class="fab fa-windows"></i>
+                        </div>
+                        <h3>Windows</h3>
+                        <p>支持 Windows 10/11</p>
+                        <div class="download-info">
+                            <span class="version">v1.1.0</span>
+                            <span class="size">45.2 MB</span>
+                        </div>
+                        <a href="#" class="btn btn-primary download-btn">
+                            <i class="fas fa-download"></i>
+                            下载 Windows 版
+                        </a>
+                    </div>
+
+                    <div class="download-card">
+                        <div class="download-icon">
+                            <i class="fab fa-apple"></i>
+                        </div>
+                        <h3>macOS</h3>
+                        <p>支持 macOS 10.15+</p>
+                        <div class="download-info">
+                            <span class="version">v1.1.0</span>
+                            <span class="size">52.8 MB</span>
+                        </div>
+                        <a href="#" class="btn btn-primary download-btn">
+                            <i class="fas fa-download"></i>
+                            下载 macOS 版
+                        </a>
+                    </div>
+
+                    <div class="download-card">
+                        <div class="download-icon">
+                            <i class="fab fa-linux"></i>
+                        </div>
+                        <h3>Linux</h3>
+                        <p>支持主流 Linux 发行版</p>
+                        <div class="download-info">
+                            <span class="version">v1.1.0</span>
+                            <span class="size">48.6 MB</span>
+                        </div>
+                        <a href="#" class="btn btn-primary download-btn">
+                            <i class="fas fa-download"></i>
+                            下载 Linux 版
+                        </a>
+                    </div>
+                </div>
+
+                <div class="system-requirements">
+                    <h3>系统要求</h3>
+                    <div class="requirements-grid">
+                        <div class="requirement-item">
+                            <i class="fas fa-microchip"></i>
+                            <span>处理器：Intel/AMD 双核 2.0GHz 或更高</span>
+                        </div>
+                        <div class="requirement-item">
+                            <i class="fas fa-memory"></i>
+                            <span>内存：4GB RAM 或更高</span>
+                        </div>
+                        <div class="requirement-item">
+                            <i class="fas fa-hdd"></i>
+                            <span>存储：500MB 可用磁盘空间</span>
+                        </div>
+                        <div class="requirement-item">
+                            <i class="fas fa-desktop"></i>
+                            <span>显示：1024x768 分辨率或更高</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 文档区域 -->
+        <section id="docs" class="docs">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">文档与支持</h2>
+                    <p class="section-description">
+                        完整的文档资源，帮助您快速上手和深入使用 AI Prompt Studio
+                    </p>
+                </div>
+
+                <div class="docs-grid">
+                    <div class="doc-card">
+                        <div class="doc-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3>快速开始</h3>
+                        <p>从安装到第一次使用的完整指南</p>
+                        <a href="#" class="doc-link">查看文档 <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <div class="doc-card">
+                        <div class="doc-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h3>用户手册</h3>
+                        <p>详细的功能说明和使用技巧</p>
+                        <a href="#" class="doc-link">查看文档 <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <div class="doc-card">
+                        <div class="doc-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>API 文档</h3>
+                        <p>REST API 接口详细说明</p>
+                        <a href="#" class="doc-link">查看文档 <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <div class="doc-card">
+                        <div class="doc-icon">
+                            <i class="fas fa-puzzle-piece"></i>
+                        </div>
+                        <h3>插件开发</h3>
+                        <p>插件系统开发指南和示例</p>
+                        <a href="#" class="doc-link">查看文档 <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <div class="doc-card">
+                        <div class="doc-icon">
+                            <i class="fas fa-question-circle"></i>
+                        </div>
+                        <h3>常见问题</h3>
+                        <p>常见问题解答和故障排除</p>
+                        <a href="#" class="doc-link">查看文档 <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <div class="doc-card">
+                        <div class="doc-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h3>社区支持</h3>
+                        <p>加入用户社区，获取帮助和分享经验</p>
+                        <a href="#" class="doc-link">加入社区 <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 联系我们 -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">联系我们</h2>
+                    <p class="section-description">
+                        有任何问题或建议？我们很乐意听到您的声音
+                    </p>
+                </div>
+
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>邮箱联系</h3>
+                                <p>support@aipromptstudio.com</p>
+                                <p>business@aipromptstudio.com</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-github"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>开源项目</h3>
+                                <p>在 GitHub 上查看源代码</p>
+                                <a href="https://github.com/bdrwss/aipromptstudio" target="_blank">访问仓库</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>用户社区</h3>
+                                <p>加入我们的用户交流群</p>
+                                <p>分享使用经验和获取帮助</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-form">
+                        <form class="form">
+                            <div class="form-group">
+                                <label for="name">姓名</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">邮箱</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">主题</label>
+                                <select id="subject" name="subject" required>
+                                    <option value="">请选择主题</option>
+                                    <option value="support">技术支持</option>
+                                    <option value="feature">功能建议</option>
+                                    <option value="bug">问题反馈</option>
+                                    <option value="business">商务合作</option>
+                                    <option value="other">其他</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">消息</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane"></i>
+                                发送消息
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-brain"></i>
+                        <span>AI Prompt Studio</span>
+                    </div>
+                    <p class="footer-description">
+                        专业的AI提示词管理工具，让您的AI创作更加高效。
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>产品</h3>
+                    <ul class="footer-links">
+                        <li><a href="#features">功能特性</a></li>
+                        <li><a href="#download">下载</a></li>
+                        <li><a href="#docs">文档</a></li>
+                        <li><a href="#">更新日志</a></li>
+                        <li><a href="#">路线图</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>支持</h3>
+                    <ul class="footer-links">
+                        <li><a href="#docs">用户手册</a></li>
+                        <li><a href="#">常见问题</a></li>
+                        <li><a href="#contact">联系我们</a></li>
+                        <li><a href="#">问题反馈</a></li>
+                        <li><a href="#">社区论坛</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>开发者</h3>
+                    <ul class="footer-links">
+                        <li><a href="#docs">API 文档</a></li>
+                        <li><a href="#">插件开发</a></li>
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">贡献指南</a></li>
+                        <li><a href="#">开源许可</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    <p>&copy; 2024 AI Prompt Studio. 版权归摆渡人吾师带领的开发团队所有。</p>
+                </div>
+                <div class="footer-legal">
+                    <a href="#">隐私政策</a>
+                    <a href="#">服务条款</a>
+                    <a href="#">Cookie 政策</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
