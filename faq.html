@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>常见问题 - AI Prompt Studio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-brain"></i>
+                <span>AI Prompt Studio</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">首页</a></li>
+                <li><a href="index.html#features" class="nav-link">功能特性</a></li>
+                <li><a href="index.html#architecture" class="nav-link">技术架构</a></li>
+                <li><a href="index.html#download" class="nav-link">下载</a></li>
+                <li><a href="index.html#docs" class="nav-link">文档</a></li>
+                <li><a href="index.html#contact" class="nav-link">联系我们</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主内容 -->
+    <main class="docs-page">
+        <div class="container">
+            <div class="docs-header">
+                <h1>常见问题</h1>
+                <p>常见问题解答和故障排除</p>
+            </div>
+
+            <div class="docs-content">
+                <div class="docs-sidebar">
+                    <ul class="docs-nav">
+                        <li><a href="#installation" class="active">安装问题</a></li>
+                        <li><a href="#usage" class="nav-link">使用问题</a></li>
+                        <li><a href="#performance">性能问题</a></li>
+                        <li><a href="#data">数据问题</a></li>
+                        <li><a href="#troubleshooting">故障排除</a></li>
+                    </ul>
+                </div>
+
+                <div class="docs-main">
+                    <section id="installation">
+                        <h2>安装问题</h2>
+                        
+                        <div class="faq-item">
+                            <h3>Q: 安装时提示"缺少依赖项"怎么办？</h3>
+                            <p><strong>A:</strong> 请确保您的系统满足最低要求：</p>
+                            <ul>
+                                <li>Windows 10 或更高版本</li>
+                                <li>安装 Microsoft Visual C++ 运行库</li>
+                                <li>确保有足够的磁盘空间（至少500MB）</li>
+                            </ul>
+                        </div>
+
+                        <div class="faq-item">
+                            <h3>Q: 安装后无法启动应用程序？</h3>
+                            <p><strong>A:</strong> 请尝试以下解决方案：</p>
+                            <ol>
+                                <li>以管理员身份运行</li>
+                                <li>检查防病毒软件是否阻止了程序</li>
+                                <li>重新安装应用程序</li>
+                                <li>查看系统事件日志获取详细错误信息</li>
+                            </ol>
+                        </div>
+
+                        <div class="faq-item">
+                            <h3>Q: macOS 和 Linux 版本什么时候发布？</h3>
+                            <p><strong>A:</strong> macOS 和 Linux 版本目前正在开发中，预计在下个版本发布。您可以关注我们的官方公告获取最新进展。</p>
+                        </div>
+                    </section>
+
+                    <section id="usage">
+                        <h2>使用问题</h2>
+                        
+                        <div class="faq-item">
+                            <h3>Q: 如何导入现有的提示词？</h3>
+                            <p><strong>A:</strong> 您可以通过以下方式导入：</p>
+                            <ul>
+                                <li>使用"文件 → 导入"功能</li>
+                                <li>支持 TXT、JSON、CSV 格式</li>
+                                <li>批量导入功能可处理大量数据</li>
+                                <li>导入前会进行格式验证</li>
+                            </ul>
+                        </div>
+
+                        <div class="faq-item">
+                            <h3>Q: 搜索功能不够精确怎么办？</h3>
+                            <p><strong>A:</strong> 尝试使用高级搜索功能：</p>
+                            <ul>
+                                <li>使用引号进行精确匹配</li>
+                                <li>利用标签筛选缩小范围</li>
+                                <li>按类型和时间进行过滤</li>
+                                <li>使用正则表达式进行复杂搜索</li>
+                            </ul>
+                        </div>
+
+                        <div class="faq-item">
+                            <h3>Q: 如何备份我的数据？</h3>
+                            <p><strong>A:</strong> 数据备份有多种方式：</p>
+                            <ul>
+                                <li>自动备份：在设置中启用定期备份</li>
+                                <li>手动备份：使用"文件 → 备份数据"</li>
+                                <li>导出备份：将数据导出为标准格式</li>
+                                <li>云备份：配置云存储同步</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section id="performance">
+                        <h2>性能问题</h2>
+                        
+                        <div class="faq-item">
+                            <h3>Q: 应用程序运行缓慢怎么办？</h3>
+                            <p><strong>A:</strong> 优化性能的方法：</p>
+                            <ul>
+                                <li>清理不需要的提示词和文件</li>
+                                <li>定期进行数据库优化</li>
+                                <li>关闭不必要的插件</li>
+                                <li>增加系统内存</li>
+                                <li>将数据库文件移至SSD</li>
+                            </ul>
+                        </div>
+
+                        <div class="faq-item">
+                            <h3>Q: 大量图片和视频导致程序卡顿？</h3>
+                            <p><strong>A:</strong> 处理多媒体文件的建议：</p>
+                            <ul>
+                                <li>启用缩略图缓存</li>
+                                <li>调整预览质量设置</li>
+                                <li>使用文件压缩功能</li>
+                                <li>定期清理缓存文件</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section id="data">
+                        <h2>数据问题</h2>
+                        
+                        <div class="faq-item">
+                            <h3>Q: 数据丢失了怎么办？</h3>
+                            <p><strong>A:</strong> 数据恢复步骤：</p>
+                            <ol>
+                                <li>检查回收站是否有被删除的项目</li>
+                                <li>查看自动备份文件</li>
+                                <li>使用"文件 → 恢复数据"功能</li>
+                                <li>联系技术支持获取帮助</li>
+                            </ol>
+                        </div>
+
+                        <div class="faq-item">
+                            <h3>Q: 如何迁移数据到新电脑？</h3>
+                            <p><strong>A:</strong> 数据迁移流程：</p>
+                            <ol>
+                                <li>在旧电脑上创建完整备份</li>
+                                <li>将备份文件复制到新电脑</li>
+                                <li>在新电脑上安装应用程序</li>
+                                <li>使用恢复功能导入数据</li>
+                                <li>验证数据完整性</li>
+                            </ol>
+                        </div>
+
+                        <div class="faq-item">
+                            <h3>Q: 数据库损坏如何修复？</h3>
+                            <p><strong>A:</strong> 数据库修复方法：</p>
+                            <ul>
+                                <li>使用内置的数据库修复工具</li>
+                                <li>从最近的备份恢复</li>
+                                <li>运行数据库完整性检查</li>
+                                <li>如果问题严重，请联系技术支持</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section id="troubleshooting">
+                        <h2>故障排除</h2>
+                        
+                        <div class="faq-item">
+                            <h3>Q: 应用程序崩溃怎么办？</h3>
+                            <p><strong>A:</strong> 崩溃问题排查：</p>
+                            <ol>
+                                <li>查看错误日志文件</li>
+                                <li>检查系统资源使用情况</li>
+                                <li>禁用所有插件后重试</li>
+                                <li>以安全模式启动应用</li>
+                                <li>重新安装应用程序</li>
+                            </ol>
+                        </div>
+
+                        <div class="faq-item">
+                            <h3>Q: 界面显示异常怎么办？</h3>
+                            <p><strong>A:</strong> 界面问题解决：</p>
+                            <ul>
+                                <li>重置界面布局设置</li>
+                                <li>更新显卡驱动程序</li>
+                                <li>调整系统DPI设置</li>
+                                <li>切换到默认主题</li>
+                            </ul>
+                        </div>
+
+                        <div class="faq-item">
+                            <h3>Q: 插件无法加载？</h3>
+                            <p><strong>A:</strong> 插件问题排查：</p>
+                            <ul>
+                                <li>检查插件兼容性</li>
+                                <li>验证插件文件完整性</li>
+                                <li>查看插件错误日志</li>
+                                <li>重新安装插件</li>
+                                <li>联系插件开发者</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section id="contact-support">
+                        <h2>联系技术支持</h2>
+                        <p>如果以上解答无法解决您的问题，请通过以下方式联系我们：</p>
+                        
+                        <div class="support-info">
+                            <div class="support-item">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <h4>邮件支持</h4>
+                                    <p>zcc9634@gmail.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="support-item">
+                                <i class="fab fa-github"></i>
+                                <div>
+                                    <h4>GitHub Issues</h4>
+                                    <p>在 GitHub 仓库提交问题报告</p>
+                                </div>
+                            </div>
+                            
+                            <div class="support-item">
+                                <i class="fas fa-comments"></i>
+                                <div>
+                                    <h4>用户社区</h4>
+                                    <p>加入用户交流群获取帮助</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <p><strong>提交问题时请包含：</strong></p>
+                        <ul>
+                            <li>操作系统版本</li>
+                            <li>应用程序版本</li>
+                            <li>详细的问题描述</li>
+                            <li>重现步骤</li>
+                            <li>错误截图或日志</li>
+                        </ul>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-brain"></i>
+                        <span>AI Prompt Studio</span>
+                    </div>
+                    <p class="footer-description">
+                        专业的AI提示词管理工具，让您的AI创作更加高效。
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h3>文档</h3>
+                    <ul class="footer-links">
+                        <li><a href="quick-start.html">快速开始</a></li>
+                        <li><a href="user-manual.html">用户手册</a></li>
+                        <li><a href="api-docs.html">API 文档</a></li>
+                        <li><a href="plugin-dev.html">插件开发</a></li>
+                        <li><a href="faq.html">常见问题</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    <p>&copy; 2024 AI Prompt Studio. 版权归摆渡人吾师带领的开发团队所有。</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

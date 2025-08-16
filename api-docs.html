@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API 文档 - AI Prompt Studio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-brain"></i>
+                <span>AI Prompt Studio</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">首页</a></li>
+                <li><a href="index.html#features" class="nav-link">功能特性</a></li>
+                <li><a href="index.html#architecture" class="nav-link">技术架构</a></li>
+                <li><a href="index.html#download" class="nav-link">下载</a></li>
+                <li><a href="index.html#docs" class="nav-link">文档</a></li>
+                <li><a href="index.html#contact" class="nav-link">联系我们</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主内容 -->
+    <main class="docs-page">
+        <div class="container">
+            <div class="docs-header">
+                <h1>API 文档</h1>
+                <p>REST API 接口详细说明</p>
+            </div>
+
+            <div class="docs-content">
+                <div class="docs-sidebar">
+                    <ul class="docs-nav">
+                        <li><a href="#overview" class="active">API 概述</a></li>
+                        <li><a href="#authentication">身份验证</a></li>
+                        <li><a href="#prompts">提示词接口</a></li>
+                        <li><a href="#categories">分类接口</a></li>
+                        <li><a href="#search">搜索接口</a></li>
+                    </ul>
+                </div>
+
+                <div class="docs-main">
+                    <section id="overview">
+                        <h2>API 概述</h2>
+                        <p>AI Prompt Studio 提供 RESTful API 接口，允许第三方应用程序与系统进行集成。</p>
+                        
+                        <h3>基础信息</h3>
+                        <ul>
+                            <li><strong>基础URL</strong>：<code>http://localhost:8080/api/v1</code></li>
+                            <li><strong>数据格式</strong>：JSON</li>
+                            <li><strong>字符编码</strong>：UTF-8</li>
+                            <li><strong>HTTP方法</strong>：GET, POST, PUT, DELETE</li>
+                        </ul>
+
+                        <h3>响应格式</h3>
+                        <pre><code>{
+  "code": 200,
+  "message": "success",
+  "data": {...}
+}</code></pre>
+                    </section>
+
+                    <section id="authentication">
+                        <h2>身份验证</h2>
+                        <p>API 使用 Token 进行身份验证。</p>
+                        
+                        <h3>获取 Token</h3>
+                        <p><strong>POST</strong> <code>/auth/token</code></p>
+                        <pre><code>{
+  "username": "your_username",
+  "password": "your_password"
+}</code></pre>
+
+                        <h3>使用 Token</h3>
+                        <p>在请求头中添加：</p>
+                        <pre><code>Authorization: Bearer your_token_here</code></pre>
+                    </section>
+
+                    <section id="prompts">
+                        <h2>提示词接口</h2>
+                        <p>管理提示词的相关接口。</p>
+                        
+                        <h3>获取提示词列表</h3>
+                        <p><strong>GET</strong> <code>/prompts</code></p>
+                        <p>参数：</p>
+                        <ul>
+                            <li><code>page</code> - 页码（可选，默认1）</li>
+                            <li><code>limit</code> - 每页数量（可选，默认20）</li>
+                            <li><code>category</code> - 分类ID（可选）</li>
+                            <li><code>type</code> - 类型（text/image/video，可选）</li>
+                        </ul>
+
+                        <h3>获取单个提示词</h3>
+                        <p><strong>GET</strong> <code>/prompts/{id}</code></p>
+
+                        <h3>创建提示词</h3>
+                        <p><strong>POST</strong> <code>/prompts</code></p>
+                        <pre><code>{
+  "title": "提示词标题",
+  "content": "提示词内容",
+  "type": "text",
+  "category_id": 1,
+  "tags": ["标签1", "标签2"]
+}</code></pre>
+
+                        <h3>更新提示词</h3>
+                        <p><strong>PUT</strong> <code>/prompts/{id}</code></p>
+
+                        <h3>删除提示词</h3>
+                        <p><strong>DELETE</strong> <code>/prompts/{id}</code></p>
+                    </section>
+
+                    <section id="categories">
+                        <h2>分类接口</h2>
+                        <p>管理提示词分类的相关接口。</p>
+                        
+                        <h3>获取分类列表</h3>
+                        <p><strong>GET</strong> <code>/categories</code></p>
+
+                        <h3>创建分类</h3>
+                        <p><strong>POST</strong> <code>/categories</code></p>
+                        <pre><code>{
+  "name": "分类名称",
+  "description": "分类描述",
+  "parent_id": null
+}</code></pre>
+
+                        <h3>更新分类</h3>
+                        <p><strong>PUT</strong> <code>/categories/{id}</code></p>
+
+                        <h3>删除分类</h3>
+                        <p><strong>DELETE</strong> <code>/categories/{id}</code></p>
+                    </section>
+
+                    <section id="search">
+                        <h2>搜索接口</h2>
+                        <p>提示词搜索相关接口。</p>
+                        
+                        <h3>全文搜索</h3>
+                        <p><strong>GET</strong> <code>/search</code></p>
+                        <p>参数：</p>
+                        <ul>
+                            <li><code>q</code> - 搜索关键词（必需）</li>
+                            <li><code>type</code> - 类型筛选（可选）</li>
+                            <li><code>category</code> - 分类筛选（可选）</li>
+                            <li><code>tags</code> - 标签筛选（可选）</li>
+                            <li><code>page</code> - 页码（可选，默认1）</li>
+                            <li><code>limit</code> - 每页数量（可选，默认20）</li>
+                        </ul>
+
+                        <h3>高级搜索</h3>
+                        <p><strong>POST</strong> <code>/search/advanced</code></p>
+                        <pre><code>{
+  "query": "搜索关键词",
+  "filters": {
+    "type": ["text", "image"],
+    "category_ids": [1, 2, 3],
+    "tags": ["标签1", "标签2"],
+    "date_range": {
+      "start": "2024-01-01",
+      "end": "2024-12-31"
+    }
+  },
+  "sort": {
+    "field": "created_at",
+    "order": "desc"
+  },
+  "page": 1,
+  "limit": 20
+}</code></pre>
+                    </section>
+
+                    <section id="examples">
+                        <h2>示例代码</h2>
+                        <p>以下是一些常用的 API 调用示例。</p>
+                        
+                        <h3>JavaScript 示例</h3>
+                        <pre><code>// 获取提示词列表
+fetch('http://localhost:8080/api/v1/prompts', {
+  headers: {
+    'Authorization': 'Bearer your_token_here',
+    'Content-Type': 'application/json'
+  }
+})
+.then(response => response.json())
+.then(data => console.log(data));</code></pre>
+
+                        <h3>Python 示例</h3>
+                        <pre><code>import requests
+
+headers = {
+    'Authorization': 'Bearer your_token_here',
+    'Content-Type': 'application/json'
+}
+
+response = requests.get(
+    'http://localhost:8080/api/v1/prompts',
+    headers=headers
+)
+data = response.json()</code></pre>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-brain"></i>
+                        <span>AI Prompt Studio</span>
+                    </div>
+                    <p class="footer-description">
+                        专业的AI提示词管理工具，让您的AI创作更加高效。
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h3>文档</h3>
+                    <ul class="footer-links">
+                        <li><a href="quick-start.html">快速开始</a></li>
+                        <li><a href="user-manual.html">用户手册</a></li>
+                        <li><a href="api-docs.html">API 文档</a></li>
+                        <li><a href="plugin-dev.html">插件开发</a></li>
+                        <li><a href="faq.html">常见问题</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    <p>&copy; 2024 AI Prompt Studio. 版权归摆渡人吾师带领的开发团队所有。</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
