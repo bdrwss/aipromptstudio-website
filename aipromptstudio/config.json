@@ -1,0 +1,134 @@
+{
+  "database": {
+    "path": "data/prompts.db",
+    "backup_enabled": true,
+    "backup_interval": 30,
+    "max_backups": 10,
+    "connection_timeout": 30
+  },
+  "ui": {
+    "theme": "light",
+    "window_width": 1200,
+    "window_height": 800,
+    "window_x": -1,
+    "window_y": -1,
+    "is_maximized": false,
+    "is_topmost": false,
+    "sidebar_width": 240,
+    "font_family": "Microsoft YaHei",
+    "font_size": 12,
+    "language": "zh_CN",
+    "show_splash": true,
+    "auto_save": true,
+    "auto_save_interval": 5
+  },
+  "media": {
+    "max_file_size": 52428800,
+    "thumbnail_size": 200,
+    "supported_image_formats": [
+      ".jpg",
+      ".jpeg",
+      ".png",
+      ".gif",
+      ".bmp",
+      ".webp"
+    ],
+    "supported_video_formats": [
+      ".mp4",
+      ".avi",
+      ".mov",
+      ".mkv",
+      ".wmv"
+    ],
+    "media_cache_enabled": true,
+    "media_cache_size": 100,
+    "auto_cleanup_orphaned": true,
+    "cleanup_interval": 24
+  },
+  "logging": {
+    "level": "INFO",
+    "console_enabled": true,
+    "file_enabled": true,
+    "file_path": "logs/app.log",
+    "max_file_size": 10485760,
+    "backup_count": 5,
+    "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    "date_format": "%Y-%m-%d %H:%M:%S"
+  },
+  "api": {
+    "enabled": false,
+    "host": "127.0.0.1",
+    "port": 8080,
+    "debug": false,
+    "cors_enabled": true,
+    "cors_origins": [
+      "*"
+    ],
+    "rate_limit_enabled": true,
+    "rate_limit_requests": 100,
+    "rate_limit_window": 60
+  },
+  "error_handling": {
+    "show_technical_details": false,
+    "auto_report_errors": true,
+    "error_toast_duration": 5000,
+    "max_concurrent_errors": 3,
+    "auto_clear_errors": true,
+    "default_severity": "error",
+    "enable_recovery_suggestions": true,
+    "error_statistics_enabled": true,
+    "fallback_language": "zh_CN"
+  },
+  "i18n": {
+    "default_locale": "zh_CN",
+    "fallback_locale": "zh_CN",
+    "supported_locales": [
+      "zh_CN",
+      "en_US"
+    ],
+    "auto_detect_locale": true,
+    "cache_size": 1000,
+    "reload_on_change": true,
+    "template_cache_enabled": true
+  },
+  "plugins": {
+    "enabled": true,
+    "plugin_directories": [
+      "plugins",
+      "user_plugins"
+    ],
+    "auto_discovery": true,
+    "security_enabled": true,
+    "max_plugins": 50,
+    "plugin_timeout": 30,
+    "hot_reload": false,
+    "sandbox_enabled": true,
+    "permission_model": "strict",
+    "cache_enabled": true,
+    "cache_size": 100,
+    "event_bus_enabled": true,
+    "max_event_queue_size": 1000,
+    "plugin_data_dir": "plugins_data",
+    "marketplace_enabled": false,
+    "auto_update_enabled": false
+  },
+  "cloud_backup": {
+    "enabled": true,
+    "default_provider": "baidu",
+    "include_media": true,
+    "remote_base_path": "aipromptstudio/backups",
+    "chunk_size_mb": 16,
+    "max_concurrency": 4,
+    "schedule_enabled": false,
+    "schedule_cron": null,
+    "interval_minutes": null,
+    "retention_days": 7,
+    "retention_min_keep": 3,
+    "credential_store": "keyring",
+    "encryption_enabled": false
+  },
+  "version": "1.2.0",
+  "debug": false,
+  "data_dir": "data",
+  "config_file": "config.json"
+}
