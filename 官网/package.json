@@ -1,0 +1,89 @@
+{
+  "name": "aipromptstudio-website",
+  "version": "1.0.0",
+  "description": "AI Prompt Studio 官方网站 - 专业的AI提示词管理工具",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "dev": "python -m http.server 8000",
+    "serve": "npx serve . -p 8000",
+    "build": "echo '构建静态网站...' && npm run optimize",
+    "optimize": "npm run optimize:html && npm run optimize:css && npm run optimize:js",
+    "optimize:html": "if command -v htmlmin >/dev/null 2>&1; then htmlmin index.html -o dist/index.html; else cp index.html dist/; fi",
+    "optimize:css": "if command -v csso >/dev/null 2>&1; then csso styles.css -o dist/styles.css; else cp styles.css dist/; fi",
+    "optimize:js": "if command -v terser >/dev/null 2>&1; then terser script.js -c -m -o dist/script.js; else cp script.js dist/; fi",
+    "deploy:github": "./deploy.sh -t github",
+    "deploy:netlify": "./deploy.sh -t netlify",
+    "deploy:vercel": "./deploy.sh -t vercel",
+    "deploy:local": "./deploy.sh -t local",
+    "lint": "npm run lint:html && npm run lint:css && npm run lint:js",
+    "lint:html": "if command -v htmlhint >/dev/null 2>&1; then htmlhint index.html; else echo 'HTMLHint not installed'; fi",
+    "lint:css": "if command -v stylelint >/dev/null 2>&1; then stylelint styles.css; else echo 'Stylelint not installed'; fi",
+    "lint:js": "if command -v eslint >/dev/null 2>&1; then eslint script.js; else echo 'ESLint not installed'; fi",
+    "test": "npm run lint && npm run build",
+    "clean": "rm -rf dist/",
+    "preview": "npm run build && npm run serve"
+  },
+  "keywords": [
+    "ai",
+    "prompt",
+    "studio",
+    "管理工具",
+    "桌面应用",
+    "python",
+    "pyside6",
+    "官网",
+    "website"
+  ],
+  "author": {
+    "name": "摆渡人吾师团队",
+    "email": "support@aipromptstudio.com",
+    "url": "https://aipromptstudio.com"
+  },
+  "license": "MIT",
+  "homepage": "https://aipromptstudio.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bdrwss/aipromptstudio.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bdrwss/aipromptstudio/issues",
+    "email": "support@aipromptstudio.com"
+  },
+  "devDependencies": {
+    "serve": "^14.2.1",
+    "htmlmin": "^0.0.7",
+    "csso-cli": "^4.0.2",
+    "terser": "^5.19.4",
+    "htmlhint": "^1.1.4",
+    "stylelint": "^15.10.3",
+    "stylelint-config-standard": "^34.0.0",
+    "eslint": "^8.47.0"
+  },
+  "optionalDependencies": {
+    "netlify-cli": "^16.3.0",
+    "vercel": "^32.2.5"
+  },
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ],
+  "config": {
+    "port": 8000,
+    "host": "localhost"
+  },
+  "files": [
+    "index.html",
+    "styles.css",
+    "script.js",
+    "README.md",
+    "deploy.sh",
+    "assets/"
+  ]
+}
