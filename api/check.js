@@ -29,11 +29,11 @@ export default function handler(req, res) {
 
   // 版本配置 - 在这里配置最新版本信息
   const LATEST_VERSION = {
-    version: "1.2.2",
-    download_url: "https://github.com/bdrwss/AI-Prompt-Studio-No.1/releases/download/v1.2.2/AI_Prompt_Studio_v1.2.2_Setup.exe",
-    file_size: 84802376, // 80.9MB，实际文件大小
-    checksum: "sha256:031bbb6832f96b0a4bb8b688c2adc3c7a9400a86830407756226664f82b44189", // 实际文件的SHA256
-    release_notes: "🚀 AI Prompt Studio v1.2.2\n\n✨ 新功能:\n- 强制自动更新功能\n- 优化用户界面\n- 提升性能和稳定性\n\n🐛 修复:\n- 修复若干已知问题\n- 提升系统稳定性\n- 优化内存使用",
+    version: "1.2.5",
+    download_url: "https://github.com/bdrwss/AI-Prompt-Studio-No.1/releases/download/v1.2.5/AI_Prompt_Studio_v1.2.5_Setup.exe",
+    file_size: 229638144, // 219MB，实际文件大小
+    checksum: "sha256:e5e2c3452e8d210ea16d56bd918e594d89ac40a04b987df1322b601775ce39af", // 实际文件的SHA256
+    release_notes: "🚀 AI Prompt Studio v1.2.5\n\n🔧 Bug修复:\n\n#### 1. 状态栏提示词数字更新问题修复\n- **修复问题**: 新建提示词后，状态栏中右侧提示词数字没有及时做出变化，重启后才显示正确\n- **影响功能**: 新建提示词、编辑提示词、删除提示词、批量操作等所有会改变提示词数量的操作\n- **修复方式**: 在所有提示词数量变化的事件处理方法中添加立即更新统计信息的调用\n\n#### 2. 回收站页面统计显示错误修复\n- **修复问题**: 回收站导航页中，状态栏右侧提示词数字显示的是'全部'导航页提示词列表中提示词的数量\n- **影响功能**: 回收站页面的统计信息显示\n- **修复方式**: 修正按钮ID判断错误，添加立即更新回收站统计信息的逻辑",
     force_update: true,  // 强制更新
     min_version: "1.0.0", // 最低支持版本
     release_date: "2025-08-23T03:33:55Z",
