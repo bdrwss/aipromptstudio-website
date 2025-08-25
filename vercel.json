@@ -1,0 +1,27 @@
+{
+  "functions": {
+    "api/check.js": {
+      "runtime": "nodejs18.x"
+    },
+    "github-vercel-setup/api/check.js": {
+      "runtime": "nodejs18.x"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/api/check",
+      "destination": "/api/check.js"
+    },
+    {
+      "source": "/health",
+      "destination": "/api/check.js"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/download/latest",
+      "destination": "https://github.com/bdrwss/AI-Prompt-Studio-No.1/releases/download/v1.2.2/AI_Prompt_Studio_v1.2.2_Setup.exe",
+      "permanent": false
+    }
+  ]
+}
